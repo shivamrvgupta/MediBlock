@@ -1,0 +1,109 @@
+<%- include('./partials/main')%>
+<link rel="stylesheet" href="/private/css/style2.css">
+
+<style>
+    .item-box {
+        width: 150px;
+        border: #0000003d 1px solid;
+    }
+    
+    .product-card-item{
+            border: #0000003d 1px solid;
+            border-radius: 12px;
+            justify-content: center;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            cursor: pointer;
+            margin: 1rem;
+    }
+    
+    .upper-card-body {  
+        justify-content: center;
+        overflow-x: auto;
+        -webkit-overflow-scrolling :touch;
+        
+    }
+    
+    .product-card-title {
+        color: #140606bd;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    .product-card-text {
+        margin-bottom: 0.5rem;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 600;
+    }
+</style>
+            <!-- index body start -->
+            <div class="page-body">
+                <!-- Container-fluid Ends-->
+                <div class="card">
+                    <div class="col-12 overflow-visible">
+                        <div class="tracker-table">
+                            <div class="table-responsive">
+                                <div class="card">
+                                    <div class="col-12 overflow-visible">
+                                        <div class="tracker-table">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr class="table-head">
+                                                            <th scope="col">Sr.No</th>
+                                                            <th scope="col">Patient Name</th>
+                                                            <th scope="col">Appointed Doctor</th>
+                                                            <th scope="col">Status</th>
+                                                        </tr>
+                                                    </thead>
+                
+                                                    <tbody>
+                                                        <% if (appointments != '') { %>        
+                                                            <% appointments.forEach((row, index) => { %> 
+                                                                <tr>
+                                                                    <td>
+                                                                        <h6><%= index+1 %></h6>
+                                                                    </td>
+                                                                    <td>
+                                                                        <h6>
+                                                                            <%= row.patient_id.first_name %> <%= row.patient_id.last_name %>
+                                                                        </h6>
+                                                                    </td>
+                                                                    <td>
+                                                                        <h6>
+                                                                            <%= row.doctor_id.first_name %> <%= row.doctor_id.last_name %>
+                                                                        </h6>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="fw-bold">True</p>
+                                                                    </td>
+                                                                </tr>
+                                                            <% }) %>      
+                                                        <% } else { %>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>Nothing</td>
+                                                                <td>to</td>
+                                                                <td>Show</td>
+                                                            </tr>
+                                                        <% } %>      
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer start-->
+                <%- include('./partials/footer')%>
+                <!-- footer End-->
+            </div>
+            <!-- index body end -->
+
+<%- include('./partials/end')%>

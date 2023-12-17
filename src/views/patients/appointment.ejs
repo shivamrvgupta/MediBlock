@@ -1,0 +1,98 @@
+<%- include('./partials/main') %>
+
+<!-- Start Page Banner Area -->
+<div class="page-banner-area bg-2 pt-100">
+    <div class="container">
+        <div class="page-banner-content">
+            <h2>Appointment</h2>
+            <ul>
+                <li>
+                    <a href="/">
+                        <i class="ri-home-8-line"></i>
+                        Home 
+                    </a>
+                </li>
+                <li>
+                    <span>Patient Care</span>
+                </li>
+                <li>
+                    <span>Book An Appointment</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Page Banner Area -->
+
+
+<!-- Start Our Department Area -->
+<div class="our-department-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+            <span class="top-title">OUR DOCTORS</span>
+            <h2>Select Doctor As per Your Choice</h2>
+        </div>
+
+        
+            <div class="row justify-content-center">
+                <% if (doctorsData != '') { %>        
+                    <% doctorsData.forEach((row, index) => { %> 
+                        <div class="col-xl-3 col-md-6">
+                    <div class="single-our-department">
+                        <img src="/images/<%= row.profile %>" alt="Image">
+
+                        <div class="department-content one">
+                            <h3>
+                                <a href="#">
+                                    <%= row.first_name %> <%= row.last_name %>
+                                </a>
+                            </h3>
+
+                            <p><%= row.city %> | <%= row.state %></p>
+                        </div>
+
+                        <div class="department-content hover">
+                            <h3>
+                                <a href="department-orthopedics.html">
+                                    <%= row.specialist %>
+                                </a>
+                            </h3>
+                            <p> ₹ <%= row.charges %> | <%= row.experience %></p>
+
+                            <p>A neurosurgeon assesses, diagnoses and treats conditions that affect your body's nervous system, which includes your brain, spinal cord and spinal column, and all of your nerves that extend from your spinal cord.</p>
+                            <a href="/send-scan/<%= row._id %>" class="read-more">
+                                Send Scan >
+                            </a>
+                        </div>
+                    </div>
+                        </div>
+                    <% }) %>      
+                <% } else { %>
+                    <h1> Nothing to show </h1>
+                <% } %>
+            </div>
+    </div>
+</div>
+<!-- End Our Department Area -->
+
+<!-- Start Knock us Area -->
+<div class="knock-us-area bg-color-0057b8 ptb-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="knock-us-content">
+                    <h3>Knock us out today to get medical services</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="knock-us-btn">
+                    <a href="appointment.html" class="default-btn active">Book An Appointment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Knock us Area -->
+
+<%- include('./partials/end') %>

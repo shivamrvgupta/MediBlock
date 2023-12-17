@@ -1,0 +1,160 @@
+<%- include('./partials/main')%>
+<link rel="stylesheet" href="/private/css/style2.css">
+
+<style>
+    .item-box {
+        width: 150px;
+        border: #0000003d 1px solid;
+    }
+    
+    .product-card-item{
+            border: #0000003d 1px solid;
+            border-radius: 12px;
+            justify-content: center;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            cursor: pointer;
+            margin: 1rem;
+    }
+    
+    .upper-card-body {  
+        justify-content: center;
+        overflow-x: auto;
+        -webkit-overflow-scrolling :touch;
+        
+    }
+    
+    .product-card-title {
+        color: #140606bd;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    .product-card-text {
+        margin-bottom: 0.5rem;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 600;
+    }
+</style>
+            <!-- index body start -->
+            <div class="page-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- chart caard section start -->
+                        <div class="col-sm-6 col-xxl-4 col-lg-6">
+                            <div class="main-tiles border-5 border-0 card o-hidden">
+                                <div class="custome-1-bg b-r-4 card-body">
+                                    <div class="media align-items-center static-top-widget">
+                                        <div class="media-body p-0">
+                                            <span class="m-0">Total Doctors</span>
+                                            <h4 class="mb-0 counter"> <%= alldoctors %>
+                                            </h4>
+                                        </div>
+                                        <div class="align-self-center text-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill="#0da487" d="M10 1C8.355 1 7 2.355 7 4v2h2V4c0-.563.437-1 1-1h6c.563 0 1 .437 1 1v2h2V4c0-1.645-1.355-3-3-3zM3 7a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h20c1.656 0 3-1.344 3-3V10a3 3 0 0 0-3-3zm10 2.906A6.089 6.089 0 0 1 19.094 16A6.089 6.089 0 0 1 13 22.094A6.089 6.089 0 0 1 6.906 16A6.089 6.089 0 0 1 13 9.906M12 13v2h-2v2h2v2h2v-2h2v-2h-2v-2z"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-xxl-4 col-lg-6">
+                            <div class="main-tiles border-5 border-0 card o-hidden">
+                                <div class="custome-2-bg b-r-4 card-body">
+                                    <div class="media static-top-widget">
+                                        <div class="media-body p-0">
+                                            <span class="m-0">Total Patients</span>
+                                            <h4 class="mb-0 counter"><%= allPatients %>
+                                            </h4>
+                                        </div>
+                                        <div class="align-self-center text-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#747dc6" d="M8 6c0-2.21 1.79-4 4-4s4 1.79 4 4s-1.79 4-4 4s-4-1.79-4-4m9 16h1c1.1 0 2-.9 2-2v-4.78c0-1.12-.61-2.15-1.61-2.66c-.43-.22-.89-.43-1.39-.62zm-4.66-5L15 11.33c-.93-.21-1.93-.33-3-.33c-2.53 0-4.71.7-6.39 1.56A2.97 2.97 0 0 0 4 15.22V22h2.34c-.22-.45-.34-.96-.34-1.5C6 18.57 7.57 17 9.5 17zM10 22l1.41-3H9.5c-.83 0-1.5.67-1.5 1.5S8.67 22 9.5 22z"/></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-xxl-4 col-lg-6">
+                            <div class="main-tiles border-5 border-0  card o-hidden">
+                                <div class="custome-3-bg b-r-4 card-body">
+                                    <div class="media static-top-widget">
+                                        <div class="media-body p-0">
+                                            <span class="m-0">Total Apointement</span>
+                                            <h4 class="mb-0 counter"> 
+                                                <%= allAppointments %>
+                                            </h4>
+                                        </div>
+
+                                        <div class="align-self-center text-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ef3f3e" d="M18.65 19.35L16.5 17.2V14h1v2.79l1.85 1.85zM17 10c.34 0 .67.03 1 .08V5h-2v3H8V5H6v15h4.68A6.995 6.995 0 0 1 17 10m-5-5c-.55 0-1-.45-1-1s.45-1 1-1s1 .45 1 1s-.45 1-1 1" opacity=".3"/><path fill="currentColor" d="M17 12c-2.76 0-5 2.24-5 5s2.24 5 5 5s5-2.24 5-5s-2.24-5-5-5m1.65 7.35L16.5 17.2V14h1v2.79l1.85 1.85zM18 3h-3.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H6c-1.1 0-2 .9-2 2v15c0 1.1.9 2 2 2h6.11a6.743 6.743 0 0 1-1.42-2H6V5h2v3h8V5h2v5.08c.71.1 1.38.31 2 .6V5c0-1.1-.9-2-2-2m-6 2c-.55 0-1-.45-1-1s.45-1 1-1s1 .45 1 1s-.45 1-1 1"/></svg>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  
+                    </div>
+                </div>
+                <!-- Container-fluid Ends-->
+                <div class="card">
+                    <div class="col-12 overflow-visible">
+                        <div class="tracker-table">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr class="table-head">
+                                            <th scope="col">Sr.No</th>
+                                            <th scope="col">Patient Name</th>
+                                            <th scope="col">Appointed Doctor</th>
+                                            <th scope="col">Status</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <% if (appointments != '') { %>        
+                                            <% appointments.forEach((row, index) => { %> 
+                                                <tr>
+                                                    <td>
+                                                        <h6><%= index+1 %></h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>
+                                                            <%= row.patient_id.first_name %> <%= row.patient_id.last_name %>
+                                                        </h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>
+                                                            <%= row.doctor_id.first_name %> <%= row.doctor_id.last_name %>
+                                                        </h6>
+                                                    </td>
+                                                    <td>
+                                                        <p class="fw-bold">True</p>
+                                                    </td>
+                                                </tr>
+                                            <% }) %>      
+                                        <% } else { %>
+                                            <tr>
+                                                <td></td>
+                                                <td>Nothing</td>
+                                                <td>to</td>
+                                                <td>Show</td>
+                                            </tr>
+                                        <% } %>      
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer start-->
+                <%- include('./partials/footer')%>
+                <!-- footer End-->
+            </div>
+            <!-- index body end -->
+
+<%- include('./partials/end')%>

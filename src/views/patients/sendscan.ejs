@@ -1,0 +1,173 @@
+<%- include('./partials/main') %>
+<!-- Start Page Banner Area -->
+<div class="page-banner-area bg-6 pt-100">
+    <div class="container">
+        <div class="page-banner-content">
+            <h2>Doctor Details</h2>
+            <ul>
+                <li>
+                    <a href="/">
+                        <i class="ri-home-8-line"></i>
+                        Home 
+                    </a>
+                </li>
+                <li>
+                    <span>Patient Care</span>
+                </li>
+                <li>
+                    <span>Doctor details</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End Page Banner Area -->
+
+<!-- Start Doctor Details Area -->
+<div class="doctor-details-area ptb-100">
+    <div class="container">
+        <div class="doctor-details-content">
+            <div class="doctor-details-wrap">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="doctor-img">
+                            <img src="/images/<%= doctorsData.profile %>" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="doctor-content">
+                            <h3><%= doctorsData.first_name %> <%= doctorsData.last_name %></h3>
+                            <span class="family"><%= doctorsData.specialist %></span>
+                            <ul>
+                                <li>
+                                    <span>Address:</span>
+                                    <%= doctorsData.city %> | <%= doctorsData.State %>
+                                </li>
+                                <li>
+                                    <span>Phone:</span>
+                                    <a href="tel:-<%= doctorsData.phone %>"><%= doctorsData.phone %></a>
+                                </li>
+                                <li>
+                                    <span>Email:</span>
+                                    <a href="mailto:<%= doctorsData.email %>"><%= doctorsData.email %></a>
+                                </li>
+                                <li>
+                                    <span>Services:</span>
+                                    <%= doctorsData.service %>
+                                </li>
+                                <li>
+                                    Experience
+                                    <p>
+                                        <%= doctorsData.experience %>
+                                        
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="socila-link">
+                <li>
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img src="/public/images/svg-icon/facebook.svg" alt="Image">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.twitter.com/" target="_blank">
+                        <img src="/public/images/svg-icon/twitter.svg" alt="Image">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/" target="_blank">
+                        <img src="/public/images/svg-icon/linkedin.svg" alt="Image">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="pt-100">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="doctor-informetion mr-15">
+                        <h2>Biography</h2>
+                        <p>Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Sed porttitor lectus nibh. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Cras ultricies ligula sed magna dictum porta. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. 
+                        </p>
+                        <p>Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Pellentesque in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis.</p>
+    
+                        <div class="gap-mb-50"></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sidebar-wrap ml-15">
+                        <div class="sidebar-widget appointment-time">
+                            <h3>Appointment Time</h3>
+
+                            <ul>
+                                <li>
+                                    Monday
+                                    <span>3:00 am - 5:00 pm</span>
+                                </li>
+                                <li>
+                                    Tueday
+                                    <span>3:00 am - 5:00 pm</span>
+                                </li>
+                                <li>
+                                    Wedday
+                                    <span>3:00 am - 8:00 pm</span>
+                                </li>
+                                <li>
+                                    Thuday
+                                    <span>3:00 am - 8:00 pm</span>
+                                </li>
+                                <li>
+                                    Friday
+                                    <span>3:00 am - 6:00 pm</span>
+                                </li>
+                                <li>
+                                    Saturday
+                                    <span>Closed</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-100">
+            <div class="doctor-informetion mr-15">
+                <h2>Send Your Scan to Book Appointment</h2>
+                
+                <div class="gap-mb-50"></div>
+
+                <form action="/send-scan" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <input type="hidden" class="form-control" name="doctor_id" value="<%= doctorsData._id %>">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>Upload Your Report</label>
+                                <input type="file" class="form-control" name="mri_report" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <button type="submit" class="default-btn active">
+                            Register
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Doctor Details Area -->
+<%- include('./partials/end') %>
+
+

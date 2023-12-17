@@ -1,0 +1,171 @@
+<%- include('./partials/main') %>
+		<!-- Start Page Banner Area -->
+		<div class="page-banner-area bg-8 pt-100">
+			<div class="container">
+				<div class="page-banner-content">
+					<h2>Registration</h2>
+					<ul>
+						<li>
+							<a href="/">
+								<i class="ri-home-8-line"></i>
+								Home 
+							</a>
+						</li>
+						<li>
+							<span>Patient Care</span>
+						</li>
+						<li>
+							<span>Registration</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- End Page Banner Area -->
+<form method="post" action="/patient-register">
+    <!-- Start Appointment Area -->
+        <div class="appointments-area ptb-100">
+            <div class="container">
+                <div class="appointments-conetnt pb-100">
+                    <h2>Patient Registration</h2>
+                </div>
+                <div class="appointments-form">
+                    <h2>Basic information</h2>
+                        <div class="row">
+                            <p style="color:red;"> <%= error %></p>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>YOUR FIRST NAME</label>
+                                    <input type="text" class="form-control" name="first_name" placeholder="Enter Your First Name..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>YOUR LAST NAME</label>
+                                    <input type="text" class="form-control" name="last_name" placeholder="Enter Your Last Name..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>EMAIL</label>
+                                    <input type="email" class="form-control" name="email" placeholder="Enter Your Email..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Enter Your Password..." >
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <label>PHONE</label>
+                                    <input type="text" class="form-control" name="phone" placeholder="Enter Your Phone Number..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Weight </label>
+                                    <input type="text" class="form-control" name="weight" placeholder="Enter Your Weight..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Height </label>
+                                    <input type="text" class="form-control" name="height" placeholder="Enter Your Height..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>DATE OF BIRTH</label>
+                                    <input type="date" class="form-control" name="dob" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>BLOOD GROUP</label>
+                                    <input type="text" class="form-control" name="bloodgroup" placeholder="Enter Your Blood Group..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>GENDER</label>
+                                    <input type="text" class="form-control" name="gender" placeholder="Enter Your Gender..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Health insurance ID (if avaiable)</label>
+                                    <input type="text" class="form-control" name="healthInsurance" placeholder="Enter Your Health Insurance Id..." >
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                
+                <div class="appointments-form mt-5">
+                    <h2>Address information</h2>
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Address Line 1</label>
+                                    <input type="text" class="form-control" name="address_1" placeholder="Enter Your Address Line 1..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Address Line 2</label>
+                                    <input type="text" class="form-control" name="address_2" placeholder="Enter Your Address Line 2..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>AREA</label>
+                                    <input type="text" class="form-control" name="area" placeholder="Enter Your Area..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>CITY</label>
+                                    <input type="text" class="form-control" name="city" placeholder="Enter Your City..." required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>STATE</label>
+                                    <input type="text" class="form-control" name="state" placeholder="Enter Your State..." required>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>PINCODE</label>
+                                    <input type="text" class="form-control" name="pincode" placeholder="Enter Your Pincode..." required>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="terms" value="true" id="flexCheckDefault1">
+                                        <label class="form-check-label" for="flexCheckDefault1">
+                                            I agree with the <a href="/terms-conditions">Terms &amp; Conditions</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <button type="submit" class="default-btn active">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <!-- End Appointment Area -->
+</form>
+
+<%- include('./partials/end') %>
