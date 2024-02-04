@@ -22,9 +22,7 @@ module.exports = {
   // Verify OTP API
     getLogin : async (req, res) => {
       console.log("I am ready")
-        res.render('a-login',{
-          title: "admin" ,
-          redirect : "branch" ,
+        res.render('doctor/a-login',{
           error: "Welcome to Login"
         })
     },
@@ -40,22 +38,22 @@ module.exports = {
       console.log(loginData)
       try {
           // Check if the mobile number exists in the database
-          const userExists = await models.DoctorModel.Admin.findOne({ email: loginData.email });
+          const userExists = await models.DoctorModel.Doctor.findOne({ email: loginData.email });
 
           console.log(userExists)
 
           if (!userExists) {
-              return res.redirect(`/admin/auth/login?error=User Not Found${encodeURIComponent(loginData.email)}`);
+              return res.redirect(`/doctor/auth/login?error=User Not Found${encodeURIComponent(loginData.email)}`);
           }
 
           // Generate and send OTP
           const isPasswordValid = await bcrypt.compare(loginData.password, userExists.password);
 
           if (!isPasswordValid) {
-              return res.redirect(`/admin/auth/login?error=Invalid email or password&email=${encodeURIComponent(loginData.email)}`);
+              return res.redirect(`/doctor/auth/login?error=Invalid email or password&email=${encodeURIComponent(loginData.email)}`);
           }
           
-          if (userExists.user_type !== 'Admin') {
+          if (userExists.user_type !== 'Doctor') {
             return res.redirect('/admin/auth/login?error=You do not have permission to access the admin panel.');
           }
 
@@ -83,8 +81,15 @@ module.exports = {
       const patients = await models.UserModel.Patient.find();
       const allPatients = patients.length;
 
+      const appointments = await models.UserModel.Appointment.find().populate('patient_id').populate('doctor_id');
+      const allAppointments = appointments.length;
+
+      const doctors = await models.DoctorModel.Doctor.find();
+      const alldoctors = doctors.length;
+
+
       error = "You are successfully logged in"
-      res.render('admin/dashboard', { options, patients, allPatients ,user: user, error})
+      res.render('admin/dashboard', { options, patients, allPatients,appointments,allAppointments, alldoctors, doctors ,user: user, error})
     },
 
   // User Logout API

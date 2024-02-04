@@ -90,5 +90,14 @@ const jwt = require('jsonwebtoken')
         },
     });
 
+    doctorsSchema.methods.comparePassword = async function(candidatePassword) {
+        try {
+            return await bcrypt.compare(candidatePassword, this.password);
+        } catch (error) {
+            console.error('Error comparing passwords:', error);
+            return false;
+        }
+    };        
+
 const Doctors = mongoose.model('Doctors', doctorsSchema);
 module.exports = Doctors
